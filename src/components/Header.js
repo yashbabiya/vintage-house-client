@@ -8,28 +8,43 @@ export default function Header() {
   const dispatch = useDispatch();
   const [keyword, setKeyword] = useState("");
   const searchProducts = () => {
-    dispatch({type:"UPDATE",payload:{keyword}})
+    dispatch({ type: "UPDATE", payload: { keyword } })
   }
-  useEffect(()=>{
-    console.log("search",search);
-  },[search])
+  useEffect(() => {
+    console.log("search", search);
+  }, [search])
   return (
-    <div className="header">
+    <div className="header bg-success">
+      <ul className="nav nav-tabs ">
+        <li className="nav-item">
+          <Link className="nav-link text-white p-2 m-2" to="/">Home</Link>
+        </li>
+        <li className="nav-item">
+          <input
+          className="nav-link text-dark bg-white  p-2 m-2"
+            value={keyword}
+            onChange={(e) => {
+              setKeyword(e.target.value);
+            }}
+            onKeyPress={(event) => {
+              if (event.key === "Enter") {
+                searchProducts()
+              }
+            }}
+          />
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link text-white p-2 m-2" to="/login">Login</Link>
+        </li>
+        <li className="nav-item">
+
+          <Link className="nav-link text-white p-2 m-2" to="/signup">Signup</Link>
+        </li>
+      </ul>
       <nav>
-        <Link to="/">Home</Link>
-        <input
-          value={keyword}
-          onChange={(e) => {
-            setKeyword(e.target.value);
-          }}
-          onKeyPress={(event) => {
-            if (event.key === "Enter") {
-              searchProducts()
-            }
-          }}
-        />
-        <Link to="/login">Login</Link>
-        <Link to="/signup">Signup</Link>
+
+
+
       </nav>
     </div>
   );

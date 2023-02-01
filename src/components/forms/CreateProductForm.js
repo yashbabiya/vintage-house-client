@@ -2,40 +2,19 @@ import React from "react";
 
 export default function CreateProduct() {
   return (
-    <>
-      <form action="">
-        <label>
-          Product Name
-          <input type="text" id="pName" />
-        </label>
+    <div className="col-lg-4 col-md-12 col-sm-12 offset-lg-4">
+      <form action="" >
+        <label>Upload Image</label>
+        <input className="form-control my-2 " accept="" type="file" />
+        <input className="form-control my-2" placeholder="Product Name" type="text" id="pName" />
+        <input className="form-control my-2" placeholder="Product Description" type="text" id="pDescription" />
+        <input className="form-control my-2" placeholder="Type" type="text" id="pType" />
+        <input className="form-control my-2" placeholder="Price" type="text" id="pPrice" />
+        <input className="form-control my-2" placeholder="Category" type="text" id="pCategory" />
 
-        <br />
-        <label>
-          Product Description
-          <input type="text" id="pDescription" />
-        </label>
+        <input className="btn btn-warning my-2 form-control text-white" type="submit" value="submit" />
 
-        <br />
-        <label>
-          Type
-          <input type="text" id="pType" />
-        </label>
-
-        <br />
-        <label>
-          Price
-          <input type="text" id="pPrice" />
-        </label>
-
-        <br />
-        <label>
-          Category
-          <input type="text" id="pCategory" />
-        </label>
-
-        <br />
-        <input type="submit" value="submit" />
       </form>
-    </>
+    </div>
   );
 }
