@@ -6,7 +6,7 @@ export default function Home() {
     <div>
       <div className="addProduct">
         <CreateProduct />
-      </div>
+      </div>                                                                    
     </div>
   );
 }
