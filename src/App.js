@@ -1,4 +1,4 @@
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { createStore } from "redux";
 import Footer from "./components/Footer";

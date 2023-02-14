@@ -4,11 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export default function Header() {
+  const user = useSelector(state=>state.user)
   const search = useSelector((state) => state.search);
   const dispatch = useDispatch();
   const [keyword, setKeyword] = useState("");
   const searchProducts = () => {
     dispatch({ type: "UPDATE", payload: { keyword } })
+  }
+  const logout = () => {
+    dispatch({type:"LOGOUT"})
   }
   useEffect(() => {
     console.log("search", search);
@@ -33,13 +37,22 @@ export default function Header() {
             }}
           />
         </li>
-        <li className="nav-item">
+        {!(user?.isUserLoggedIn) &&
+          <li className="nav-item">
           <Link className="nav-link text-white p-2 m-2" to="/login">Login</Link>
         </li>
-        <li className="nav-item">
-
+        }
+        {!(user?.isUserLoggedIn) &&
+          <li className="nav-item">
           <Link className="nav-link text-white p-2 m-2" to="/signup">Signup</Link>
         </li>
+        }
+        {(user?.isUserLoggedIn) &&
+          <li className="nav-item">
+          <button className="nav-link bg-danger text-white p-2 m-2" onClick={() => {logout()}}>Logout</button>
+        </li>
+        }
+       
       </ul>
       <nav>
 
