@@ -1,6 +1,15 @@
-const initialState = {
-    isUserLoggedIn:false
+let initialState
+if(localStorage.getItem("user")){
+    initialState = JSON.parse(localStorage.getItem("user"))
+}else{
+     initialState = {
+        isUserLoggedIn:false
+    }
 }
+
+
+console.log("Initial State::",initialState)
+
 
 const userReducer = (state=initialState,action) =>{
     switch(action.type){

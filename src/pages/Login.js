@@ -1,12 +1,13 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { API } from '../backend'
 
 export default function Login() {
   
     const user = useSelector(state=>state.user)
-    
+    const navigate = useNavigate()
  
     const dispatch = useDispatch()
     const login = () =>{
@@ -23,8 +24,8 @@ export default function Login() {
     
   const [values, setValues] = useState({
    
-    username: "",
-    password: "",
+    username: "jymn23",
+    password: "jymn23",
     role:"BUYER",
     success:false,
     warning:false
@@ -83,10 +84,16 @@ export default function Login() {
       switch(user?.role){
         case 'BUYER':
           //BUYER DASHBOARD
+          navigate("/dashboard/buyer")
+          break;
         case 'SELLER':
           //SELLER DASHBOARD
+          navigate("/dashboard/seller")
+          break;
         case 'ADMIN':
           //ADMIN DASHBOARD
+          navigate("/dashboard/admin")
+          break;
       }
     }
   }
